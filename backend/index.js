@@ -11,7 +11,7 @@ const port = process.env.PORT || 8000;
 let app=express()
 
 app.use(cors({
-  origin:["http://localhost:5173"]
+  origin:["http://localhost:5173","https://contact-mern-stack.vercel.app"]
 }))
 app.use(express.json())
 

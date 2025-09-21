@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Snackbar from "./utils/Snackbar";
+// import dotenv from 'dotenv';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -8,7 +9,10 @@ function App() {
   const [pages, setPages] = useState(1);
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [snackbar, setSnackbar ]=useState({message:"", type:""});
-
+  // remove dotenv import and process.env.PORT
+// const API_BASE= import.meta.env.VITE_API_BASE_URL;
+let link="https://contactmernstackbackend.onrender.com";
+  // dotenv.config();
   const showSnackbar=(message, type="success")=>{
     setSnackbar({message, type});
     setTimeout(()=>setSnackbar({message:"", type:""}),3000); //auto hides in 3s 
@@ -16,7 +20,7 @@ function App() {
   // Fetch contacts with pagination
   const fetchContacts = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/users?page=${page}&limit=4`);
+      const res = await axios.get(`${link}/api/users?page=${page}&limit=4`);
       setContacts(res.data.contacts);
       console.log(res.data);
       setContacts(Array.isArray(res.data)?res.data:res.data.contacts);
@@ -42,7 +46,7 @@ function App() {
       console.log("Submitting form:", form);
       //with form inputs
       // debugger;
-      await axios.post("http://localhost:8000/api/create", form,{headers:{"Content-Type":"application/json"}});
+      await axios.post(`${link}/api/create`, form,{headers:{"Content-Type":"application/json"}});
       setForm({ name: "", email: "", phone: "" });
       fetchContacts();
       showSnackbar("Contact created successfully!", "success");
@@ -56,7 +60,7 @@ function App() {
   const handleDelete = async (id) => {
     try {
       console.log("Deleting contact with id:", id);
-      await axios.delete(`http://localhost:8000/api/delete/${id}`);
+      await axios.delete(`${link}/api/delete/${id}`);
       // console.log("Deleted contact with id:", res.data);
       fetchContacts();
       showSnackbar("Contact deleted successfully!", "success");
