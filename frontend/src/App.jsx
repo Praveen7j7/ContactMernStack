@@ -52,7 +52,7 @@ let link="https://contactmernstackbackend.onrender.com";
       showSnackbar("Contact created successfully!", "success");
     } catch (err) {
       console.error("Error creating contact:", err);
-      showSnackbar(err.response?.data?.message || "Error creating contact", "error");
+      showSnackbar(err.response?.data?.message || "Error creating contact (Check Email Correctness(unique) and 10 digit Mobile number(unique))", "error");
     }
   };
 
