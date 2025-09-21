@@ -75,7 +75,7 @@ Create a `.env` file inside **backend/**:
 
 ```env
 MONGO_URI=your_mongodb_connection_string
-PORT=8000
+PORT= https://contactmernstackbackend.onrender.com ||8000
 ```
 
 Run the backend server:
@@ -84,7 +84,7 @@ Run the backend server:
 npm start
 ```
 
-> Runs at: `http://localhost:8000`
+> Runs at: `https://contactmernstackbackend.onrender.com`||`http://localhost:8000`
 
 ---
 
@@ -107,7 +107,7 @@ Run the frontend:
 npm run dev
 ```
 
-> Runs at: `http://localhost:5173`
+> Runs at: `https://contact-mern-stack.vercel.app` || `http://localhost:5173`
 
 ---
 
@@ -134,7 +134,7 @@ npm run dev
 
 ## 🌍 Live Demo
 
-* **Frontend (Vercel)** → https://contactmernstackfrontend.vercel.app
+* **Frontend (Vercel)** → https://contact-mern-stack.vercel.app
 * **Backend (Render)** → https://contactmernstackbackend.onrender.com
 
 ---
